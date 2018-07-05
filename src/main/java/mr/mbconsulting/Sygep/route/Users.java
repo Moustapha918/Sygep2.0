@@ -1,6 +1,5 @@
 package mr.mbconsulting.Sygep.route;
 
-import javafx.application.Application;
 import mr.mbconsulting.Sygep.model.User;
 import mr.mbconsulting.Sygep.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
