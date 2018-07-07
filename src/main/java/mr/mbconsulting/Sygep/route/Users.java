@@ -29,4 +29,11 @@ public class Users {
         tokenMap.put("token", token);
         return ResponseEntity.ok(tokenMap);
     }
+
+    @PostMapping("/add")
+    @CrossOrigin
+    public ResponseEntity addUser(@RequestBody User user){
+        boolean isAdded =  userService.signup(user);
+        return ResponseEntity.ok(isAdded);
+    }
 }
