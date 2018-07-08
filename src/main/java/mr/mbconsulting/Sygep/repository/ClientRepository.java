@@ -2,7 +2,6 @@ package mr.mbconsulting.Sygep.repository;
 
 import mr.mbconsulting.Sygep.model.Client;
 
-
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -12,6 +11,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ClientRepository extends JpaRepository<Client,Integer> {
-	@Query("select c from Client c where c.username like :x")
-    public Page<Client>  chercher(@Param("x") String ch,Pageable pageable);
+	
 }

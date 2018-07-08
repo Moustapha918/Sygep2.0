@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 @SpringBootApplication
-@ComponentScan({"mr.mbconsulting.Sygep.services","mr.mbconsulting.Sygep.controller"})
+@ComponentScan({"mr.mbconsulting.Sygep.route","mr.mbconsulting.Sygep.services","mr.mbconsulting.Sygep.security"})
 @EntityScan("mr.mbconsulting.Sygep.model")
 @EnableJpaRepositories("mr.mbconsulting.Sygep.repository")
 public class SygepApplication  implements CommandLineRunner{
