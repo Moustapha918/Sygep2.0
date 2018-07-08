@@ -19,12 +19,10 @@ public class Users {
     @CrossOrigin
     @PostMapping(value = "/signin", produces = {"application/json"})
     public ResponseEntity<Map> login(@RequestBody User user){
-        String username = "admin";
-        String password = "admin";
         System.out.println("User ---------------"+user.getUsername());
         Map<String, String> tokenMap = new HashMap<>();
 
-        String token = userService.signin(username, password);
+        String token = userService.signin(user.getUsername(), user.getPassword());
         tokenMap.put("token", token);
         return ResponseEntity.ok(tokenMap);
     }

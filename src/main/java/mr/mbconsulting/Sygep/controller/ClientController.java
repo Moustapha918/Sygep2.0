@@ -34,19 +34,19 @@ public class ClientController implements Serializable{
 		return (List<Client>) clientRepository.findAll();
 	}
 	
-	@RequestMapping("/clients")
+	/*@RequestMapping("/clients")
 	public Page<Client> allClient(int page) {
 		return  clientRepository.findAll(new PageRequest(page, 3));
-	}
+	}*/
 	@RequestMapping("/delete")
 	public boolean deletClient(Client c) {
 		 clientRepository.delete(c);
 		return true;
 	}
-	@RequestMapping("/update")
+	/*@RequestMapping("/update")
 	public Client updateClient(Client c) {
 		 clientRepository.saveAndFlush(c);
 		return c;
-	}
+	}*/
 
 }

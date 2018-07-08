@@ -7,11 +7,13 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
-public interface ClientRepository extends JpaRepository<Client,Integer> {
-	@Query("select c from Client c where c.username like :x")
-    public Page<Client>  chercher(@Param("x") String ch,Pageable pageable);
+public interface ClientRepository extends CrudRepository<Client,Integer> {
+    public List<Client> findByName(String name);
 }
