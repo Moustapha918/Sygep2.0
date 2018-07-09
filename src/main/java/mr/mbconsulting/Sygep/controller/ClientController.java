@@ -1,19 +1,18 @@
 package mr.mbconsulting.Sygep.controller;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.data.domain.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import mr.mbconsulting.Sygep.model.Client;
 import mr.mbconsulting.Sygep.repository.ClientRepository;
 
 @RestController
+@RequestMapping("/client")
 public class ClientController implements Serializable{
 	
 	@Autowired
@@ -29,9 +28,32 @@ public class ClientController implements Serializable{
 		clientRepository.save(c);
 		return c;
 	}
-	@RequestMapping("/all")
+	@CrossOrigin
+	@GetMapping(value = "/all", produces = "application/json")
 	public List<Client> allClient() {
-		return (List<Client>) clientRepository.findAll();
+
+
+		Client client1 = new Client();
+		client1.setNom("BOUFAL");
+		client1.setPrenom("Salem");
+
+		Client client3 = new Client();
+		client3.setNom("Ibrahim");
+		client3.setPrenom("KHADI");
+
+		Client client2 = new Client();
+		client2.setNom("Ibrahim");
+		client2.setPrenom("KHADI");
+
+		List<Client> clients = new ArrayList<>();
+
+		clients.add(client1);
+		clients.add(client2);
+		clients.add(client3);
+
+		return clients;
+
+		//return (List<Client>) clientRepository.findAll();
 	}
 	
 	/*@RequestMapping("/clients")
