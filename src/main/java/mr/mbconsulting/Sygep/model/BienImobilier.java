@@ -1,4 +1,4 @@
-package com.prsk.entities;
+package mr.mbconsulting.Sygep.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -17,28 +17,27 @@ public class BienImobilier implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-
 	private Long id;
+
+	private String type ;
+	@OneToMany(mappedBy="bienImobilier")
+	private List<Contrat>  contrats;
+
 	public BienImobilier() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Contrat getContrat() {
-		return contrat;
+
+	public List<Contrat> getContrats() {
+		return contrats;
 	}
-	public void setContrat(Contrat contrat) {
-		this.contrat = contrat;
+
+	public void setContrats(List<Contrat> contrats) {
+		this.contrats = contrats;
 	}
-	public BienImobilier(String type) {
-		super();
-		this.type = type;
-	}
-	@OneToOne(mappedBy="bienImobilier")
-	private Contrat  contrat;
-	
-	
-	
-	private String type ;
+
+
+
 	public Long getId() {
 		return id;
 	}

@@ -1,5 +1,4 @@
-package com.prsk.entities;
-
+package mr.mbconsulting.Sygep.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -55,7 +54,5 @@ public class Client implements Serializable {
 	public void addContrat(Contrat contrat){
 		this.getContrats().add(contrat);
 		contrat.setClient(this) ;
-		}
-
-
+	}
 }

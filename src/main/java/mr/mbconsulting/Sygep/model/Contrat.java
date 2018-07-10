@@ -1,4 +1,4 @@
-package com.prsk.entities;
+package mr.mbconsulting.Sygep.model;
 
 import java.io.Serializable;
 
@@ -15,17 +15,22 @@ import javax.persistence.OneToOne;
 public class Contrat implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-
 	private Long id;
+	private String type;
+
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="fk_idClient")
+	private Client client;
+
+	@ManyToOne(cascade=CascadeType.ALL)
+	private BienImobilier bienImobilier;
+
+
 	public Contrat(String type, Client client, BienImobilier bienimobilier) {
 		super();
 		this.type = type;
 		this.client = client;
 		
-	}
-	public Contrat() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
 	public Client getClient() {
 		return client;
@@ -34,14 +39,7 @@ public class Contrat implements Serializable {
 		this.client = client;
 	}
 	
-	private String type;
-	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="fk_idClient")
-	private Client client;
-	@OneToOne(cascade=CascadeType.ALL)
-	//@NotEmpt
-	private BienImobilier bienImobilier;
-	
+
 	public BienImobilier getBienImobilier() {
 		return bienImobilier;
 	}
