@@ -1,7 +1,4 @@
 package mr.mbconsulting.Sygep.model;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -35,7 +32,7 @@ public class Client implements Serializable {
 	public void setContrats(List<Contrat> contrats) {
 		this.contrats = contrats;
 	}
-	
+
 	private String nom;
 	@OneToMany(mappedBy="client")
 	private List<Contrat>  contrats=new ArrayList<>();
