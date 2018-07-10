@@ -3,7 +3,7 @@ package mr.mbconsulting.Sygep.model;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.util.List;
-@Entity
+@Entity(name="SYM_USER")
 public class User {
 
     @Id
