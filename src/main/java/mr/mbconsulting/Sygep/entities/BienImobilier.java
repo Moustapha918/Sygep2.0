@@ -14,7 +14,7 @@ public class BienImobilier implements Serializable {
 	private String code;
 	private String intitule;
 	private Boolean etat;
-	@OneToMany(mappedBy = "BienImobilier")
+	@OneToMany(mappedBy = "bienImobilier")
 	private List<Contrat> contrats;
 
 
