@@ -3,14 +3,8 @@ package mr.mbconsulting.Sygep.entities;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.DiscriminatorColumn;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
+
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
 @DiscriminatorColumn(name="TYPE_PAIEMENT")
@@ -23,7 +17,7 @@ public abstract class Paiement implements Serializable {
 	private Double montant;
 
 
-	@OneToOne
+	@ManyToOne
 	private Contrat contrat;
 
 	public Long getId() {

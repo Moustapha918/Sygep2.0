@@ -2,6 +2,7 @@ package mr.mbconsulting.Sygep.entities;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -18,12 +19,19 @@ public class Contrat implements Serializable {
 	@ManyToOne()
 	private Client client;
 	@JsonIgnore
-	@OneToOne()
-	private Paiement p;
+	@OneToMany(mappedBy = "contrat")
+	private List<Paiement> paiements;
 	@JsonIgnore
 	@ManyToOne
 	private BienImobilier bienImobilier;
 
+	public List<Paiement> getPaiements() {
+		return paiements;
+	}
+
+	public void setPaiements(List<Paiement> paiements) {
+		this.paiements = paiements;
+	}
 
 	public String getType() {
 		return type;
@@ -45,12 +53,6 @@ public class Contrat implements Serializable {
 		this.client = client;
 	}
 
-	public Paiement getP() {
-		return p;
-	}
-	public void setP(Paiement p) {
-		this.p = p;
-	}
 	public BienImobilier getBienImobilier() {
 		return bienImobilier;
 	}
