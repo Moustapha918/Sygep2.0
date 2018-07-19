@@ -7,14 +7,5 @@ import javax.persistence.Entity;
 @DiscriminatorValue(value="Paiement_Cache")
 public class Paiement_Cache extends Paiement {
 
-	public Paiement_Cache() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	
-
-	
-
-	
 
 }

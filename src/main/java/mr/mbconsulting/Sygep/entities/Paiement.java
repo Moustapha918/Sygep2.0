@@ -21,43 +21,40 @@ public abstract class Paiement implements Serializable {
 	private Long id; 
 	private Date date_paiement;
 	private Double montant;
+
+
+	@OneToOne
+	private Contrat contrat;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	public Date getDate_paiement() {
 		return date_paiement;
 	}
+
 	public void setDate_paiement(Date date_paiement) {
 		this.date_paiement = date_paiement;
 	}
+
 	public Double getMontant() {
 		return montant;
 	}
+
 	public void setMontant(Double montant) {
 		this.montant = montant;
 	}
 
-	@OneToOne
-	private Contrat contrat; 
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
-	
 	public Contrat getContrat() {
 		return contrat;
 	}
+
 	public void setContrat(Contrat contrat) {
 		this.contrat = contrat;
 	}
-	public Paiement() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	
-	public Paiement(Contrat contrat) {
-		super();
-		this.contrat = contrat;
-	}
-	
-
 }
