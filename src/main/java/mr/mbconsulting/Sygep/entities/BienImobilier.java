@@ -1,11 +1,9 @@
 package mr.mbconsulting.Sygep.entities;
 
 import java.io.Serializable;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import java.util.List;
+import javax.persistence.*;
+
 @Entity
 public class BienImobilier implements Serializable {
 	@Id
@@ -16,8 +14,9 @@ public class BienImobilier implements Serializable {
 	private String code;
 	private String intitule;
 	private Boolean etat;
-	@OneToOne()
-	private Contrat c;
+	@OneToMany(mappedBy = "BienImobilier")
+	private List<Contrat> contrats;
+
 
 	public Long getId() {
 		return id;
@@ -59,11 +58,5 @@ public class BienImobilier implements Serializable {
 		this.etat = etat;
 	}
 
-	public Contrat getC() {
-		return c;
-	}
 
-	public void setC(Contrat c) {
-		this.c = c;
-	}
 }
