@@ -25,6 +25,8 @@ public class Contrat implements Serializable {
 	@ManyToOne(cascade=CascadeType.ALL)
 	private BienImobilier bienImobilier;
 
+	public Contrat() {
+	}
 
 	public Contrat(String type, Client client, BienImobilier bienimobilier) {
 		super();
