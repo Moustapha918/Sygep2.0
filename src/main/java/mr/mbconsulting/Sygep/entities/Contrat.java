@@ -1,50 +1,38 @@
-package mr.mbconsulting.Sygep.entities;
+package mr.mbconsulting.Sygep.model;
 
 import java.io.Serializable;
-import java.util.Date;
-import java.util.List;
-import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 @Entity
-
 public class Contrat implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-
 	private Long id;
 	private String type;
-	private Date date_contrat;
-	@JsonIgnore
-	@ManyToOne()
+
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="fk_idClient")
 	private Client client;
-	@JsonIgnore
-	@OneToMany(mappedBy = "contrat")
-	private List<Paiement> paiements;
-	@JsonIgnore
-	@ManyToOne
+
+	@ManyToOne(cascade=CascadeType.ALL)
 	private BienImobilier bienImobilier;
 
-	public List<Paiement> getPaiements() {
-		return paiements;
+	public Contrat() {
 	}
 
-	public void setPaiements(List<Paiement> paiements) {
-		this.paiements = paiements;
-	}
-
-	public String getType() {
-		return type;
-	}
-	public void setType(String type) {
+	public Contrat(String type, Client client, BienImobilier bienimobilier) {
+		super();
 		this.type = type;
-	}
-
-	public Date getDate_contrat() {
-		return date_contrat;
-	}
-	public void setDate_contrat(Date date_contrat) {
-		this.date_contrat = date_contrat;
+		this.client = client;
+		
 	}
 	public Client getClient() {
 		return client;
@@ -52,6 +40,7 @@ public class Contrat implements Serializable {
 	public void setClient(Client client) {
 		this.client = client;
 	}
+	
 
 	public BienImobilier getBienImobilier() {
 		return bienImobilier;
@@ -59,12 +48,23 @@ public class Contrat implements Serializable {
 	public void setBienImobilier(BienImobilier bienImobilier) {
 		this.bienImobilier = bienImobilier;
 	}
-	
+	public Contrat(String type) {
+		super();
+		this.type = type;
+	}
 	public Long getId() {
 		return id;
 	}
 	public void setId(Long id) {
 		this.id = id;
 	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	
+	
 
 }

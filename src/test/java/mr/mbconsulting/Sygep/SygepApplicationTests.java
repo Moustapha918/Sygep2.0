@@ -11,6 +11,7 @@ public class SygepApplicationTests {
 
 	@Test
 	public void contextLoads() {
+
 	}
 
 }
