@@ -1,4 +1,6 @@
-package mr.mbconsulting.Sygep.model;
+package  mr.mbconsulting.Sygep.entities;
+import mr.mbconsulting.Sygep.entities.BienImobilier;
+import mr.mbconsulting.Sygep.entities.Client;
 
 import java.io.Serializable;
 

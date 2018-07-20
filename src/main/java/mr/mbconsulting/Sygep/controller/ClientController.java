@@ -3,12 +3,11 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import mr.mbconsulting.Sygep.entities.Client;
 import org.springframework.data.domain.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
-
-import mr.mbconsulting.Sygep.model.Client;
 import mr.mbconsulting.Sygep.repository.ClientRepository;
 
 @RestController

@@ -1,6 +1,5 @@
 package mr.mbconsulting.Sygep.controller;
 
-import mr.mbconsulting.Sygep.model.Contrat;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 import org.junit.runner.RunWith;
