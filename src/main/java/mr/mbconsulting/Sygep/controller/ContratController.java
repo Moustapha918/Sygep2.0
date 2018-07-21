@@ -1,45 +1,45 @@
 package mr.mbconsulting.Sygep.controller;
 
+import mr.mbconsulting.Sygep.entities.Contrat;
+import mr.mbconsulting.Sygep.services.ContratService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-
-import mr.mbconsulting.Sygep.dao.BienImobilierRepostory;
-import mr.mbconsulting.Sygep.dao.ClienRepostory;
-import mr.mbconsulting.Sygep.dao.ContratRepostory;
-import mr.mbconsulting.Sygep.entities.Contrat;
-
-
 @RestController
-@RequestMapping("/iscan")
+@RequestMapping("/contrats")
+@CrossOrigin("*")
 public class ContratController {
-	 	@Autowired
-	    ContratRepostory contratRepostory;
 
-	    @RequestMapping(value="/contrats",method=RequestMethod.GET)
-	    public List<Contrat> listContrats(){
-	    	return contratRepostory.findAll();
-	    	
-	    }
-	    @RequestMapping(value="/addcontrat",method=RequestMethod.POST)
-		public Contrat addContrat(@RequestBody Contrat c) {
-		return contratRepostory.save(c);
-	} 
-	    @RequestMapping(value="/deletecontrat/{id}",method=RequestMethod.DELETE)
-		public boolean delateContrat(@PathVariable Long id) {
-	    	Contrat c=contratRepostory.getOne(id);
-	    	contratRepostory.delete(c);
-	     return true;
-	}   
-	    @RequestMapping(value="/updatecontrat/{id}",method=RequestMethod.PUT)
-		public Contrat updaeContrat(@PathVariable Long id,@RequestBody Contrat c) {
-			c.setId(id);
-	    return contratRepostory.save(c);
-	} 
+    private Logger logger = LoggerFactory.getLogger(ContratController.class);
 
+    private ContratService contratService;
+
+    @GetMapping("/all")
+    public List<Contrat> getAll(){
+    	return contratService.getAll();
+	}
+
+    /**
+     *
+     * @param contrat
+     * @return true if the contract is added to the database
+     */
+    @PostMapping("/add")
+    public Contrat addContrat(@RequestBody Contrat contrat){
+        logger.info("receive object "+contrat);
+        return contratService.save(contrat);
+    }
+
+    @PutMapping("/update/{id}")
+    public Contrat update(@PathVariable("id") Long id, @RequestBody Contrat contrat){
+    	return contratService.update(id,contrat);
+	}
+
+	@DeleteMapping("/delete/{id}")
+	public boolean delete(@PathVariable("id") Long id){
+    	return contratService.delete(id);
+	}
 }

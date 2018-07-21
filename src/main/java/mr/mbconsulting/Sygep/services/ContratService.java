@@ -6,6 +6,9 @@ import mr.mbconsulting.Sygep.repository.ContratRepository;
 import java.util.List;
 
 public interface ContratService {
-    boolean addContrat(Contrat contrat);
+    Contrat save(Contrat contrat);
     List<Contrat> getAll();
+    Contrat update(Long id, Contrat contrat);
+    boolean delete(Long id);
+
 }

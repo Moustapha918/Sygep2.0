@@ -17,7 +17,6 @@ public class ContratServiceImpl implements ContratService {
     }
 
     /**
-     *
      * @return Contrats from database
      */
     @Override
@@ -26,26 +25,31 @@ public class ContratServiceImpl implements ContratService {
     }
 
     /**
-     *
      * @param contrat
      * @return true if the contract is added to the database
      */
     @Override
-    public boolean addContrat(Contrat contrat) {
-        if(isValid(contrat)){
-            contrat = contratRepository.save(contrat);
+    public Contrat save(Contrat contrat) {
+        return null;
+    }
 
-            return contrat.getId() > 0;
-        }
+    @Override
+    public Contrat update(Long id, Contrat contrat) {
+        return null;
+    }
+
+    @Override
+    public boolean delete(Long id) {
         return false;
     }
 
     /**
-     *
      * @param contrat
      * @return true if contrat contrsaints is valid otherwise false
      */
-    private boolean isValid(Contrat contrat){
+    private boolean isValid(Contrat contrat) {
         return contrat != null && contrat.getBienImmobilier() != null && contrat.getClient() != null && !contrat.getType().equals("");
     }
+
+
 }
