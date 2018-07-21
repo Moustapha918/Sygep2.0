@@ -1,6 +1,4 @@
 package  mr.mbconsulting.Sygep.entities;
-import mr.mbconsulting.Sygep.entities.BienImobilier;
-import mr.mbconsulting.Sygep.entities.Client;
 
 import java.io.Serializable;
 
@@ -11,8 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+
 @Entity
 public class Contrat implements Serializable {
 	@Id
@@ -25,12 +22,12 @@ public class Contrat implements Serializable {
 	private Client client;
 
 	@ManyToOne(cascade=CascadeType.ALL)
-	private BienImobilier bienImobilier;
+	private BienImmobilier bienImmobilier;
 
 	public Contrat() {
 	}
 
-	public Contrat(String type, Client client, BienImobilier bienimobilier) {
+	public Contrat(String type, Client client, BienImmobilier bienimobilier) {
 		super();
 		this.type = type;
 		this.client = client;
@@ -44,11 +41,11 @@ public class Contrat implements Serializable {
 	}
 	
 
-	public BienImobilier getBienImobilier() {
-		return bienImobilier;
+	public BienImmobilier getBienImmobilier() {
+		return bienImmobilier;
 	}
-	public void setBienImobilier(BienImobilier bienImobilier) {
-		this.bienImobilier = bienImobilier;
+	public void setBienImmobilier(BienImmobilier bienImmobilier) {
+		this.bienImmobilier = bienImmobilier;
 	}
 	public Contrat(String type) {
 		super();

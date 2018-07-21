@@ -46,6 +46,6 @@ public class ContratServiceImpl implements ContratService {
      * @return true if contrat contrsaints is valid otherwise false
      */
     private boolean isValid(Contrat contrat){
-        return contrat != null && contrat.getBienImobilier() != null && contrat.getClient() != null && !contrat.getType().equals("");
+        return contrat != null && contrat.getBienImmobilier() != null && contrat.getClient() != null && !contrat.getType().equals("");
     }
 }

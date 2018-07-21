@@ -19,13 +19,7 @@ import mr.mbconsulting.Sygep.entities.Paiement_par_versment;
 @RestController
 @RequestMapping("/iscan")
 public class Paiement_par_versment_Controller {
-	@Autowired
-	ClienRepostory clienRepostory;
-    @Autowired
-    ContratRepostory contratRepostory;
-    @Autowired
-    BienImobilierRepostory bienImobilierRepostory;
-    @Autowired
+
     PaiementRepository paiementRepository;
     @Autowired
     Paiement_par_versment_Repository  paiement_par_versment_Repository;

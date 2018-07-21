@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import mr.mbconsulting.Sygep.dao.BienImobilierRepostory;
 import mr.mbconsulting.Sygep.dao.ClienRepostory;
 import mr.mbconsulting.Sygep.dao.ContratRepostory;
-import mr.mbconsulting.Sygep.entities.BienImobilier;
+import mr.mbconsulting.Sygep.entities.BienImmobilier;
 
 
 @RestController
@@ -25,22 +25,22 @@ public class BienImobilierController {
 	    @Autowired
 	    BienImobilierRepostory bienImobilierRepostory;
 	    @RequestMapping(value="/bienimobiliers",method=RequestMethod.GET)
-	    public List<BienImobilier> listBienImobiliers(){
+	    public List<BienImmobilier> listBienImobiliers(){
 	    	return bienImobilierRepostory.findAll();
 	    	
 	    }
 	    @RequestMapping(value="/addbienimobilier",method=RequestMethod.POST)
-		public BienImobilier addBienImobilier(@RequestBody BienImobilier b) {
+		public BienImmobilier addBienImobilier(@RequestBody BienImmobilier b) {
 		return bienImobilierRepostory.save(b);
 	} 
 	    @RequestMapping(value="/deletebienimobilier/{id}",method=RequestMethod.DELETE)
 		public boolean delateBienImobilier(@PathVariable Long id) {
-	    	BienImobilier b=bienImobilierRepostory.getOne(id);
+	    	BienImmobilier b=bienImobilierRepostory.getOne(id);
 			bienImobilierRepostory.delete(b);
 	     return true;
 	}   
 	    @RequestMapping(value="/updatebienimobilier/{id}",method=RequestMethod.PUT)
-		public BienImobilier updaeBienImobilier(@PathVariable Long id,@RequestBody BienImobilier b) {
+		public BienImmobilier updaeBienImobilier(@PathVariable Long id, @RequestBody BienImmobilier b) {
 			b.setId(id);
 	    return bienImobilierRepostory.save(b);
 	} 

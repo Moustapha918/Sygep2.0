@@ -5,7 +5,7 @@ import java.util.List;
 import javax.persistence.*;
 
 @Entity
-public class BienImobilier implements Serializable {
+public class BienImmobilier implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 
@@ -14,7 +14,7 @@ public class BienImobilier implements Serializable {
 	private String code;
 	private String intitule;
 	private Boolean etat;
-	@OneToMany(mappedBy = "bienImobilier")
+	@OneToMany(mappedBy = "bienImmobilier")
 	private List<Contrat> contrats;
 
 

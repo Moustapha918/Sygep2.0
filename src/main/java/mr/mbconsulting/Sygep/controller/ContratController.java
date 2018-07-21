@@ -18,12 +18,9 @@ import mr.mbconsulting.Sygep.entities.Contrat;
 @RestController
 @RequestMapping("/iscan")
 public class ContratController {
-	 @Autowired
-		ClienRepostory clienRepostory;
-	    @Autowired
+	 	@Autowired
 	    ContratRepostory contratRepostory;
-	    @Autowired
-	    BienImobilierRepostory bienImobilierRepostory;
+
 	    @RequestMapping(value="/contrats",method=RequestMethod.GET)
 	    public List<Contrat> listContrats(){
 	    	return contratRepostory.findAll();
