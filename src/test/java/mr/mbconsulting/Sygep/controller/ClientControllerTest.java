@@ -1,9 +1,9 @@
 package mr.mbconsulting.Sygep.controller;
 
-import mr.mbconsulting.Sygep.dao.BienImobilierRepostory;
-import mr.mbconsulting.Sygep.dao.ClienRepostory;
-import mr.mbconsulting.Sygep.dao.ContratRepostory;
 import mr.mbconsulting.Sygep.entities.Client;
+import mr.mbconsulting.Sygep.repository.BienImobilierRepostory;
+import mr.mbconsulting.Sygep.repository.ClientRepository;
+import mr.mbconsulting.Sygep.repository.ContratRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,9 +20,9 @@ public class ClientControllerTest {
 
 
     @Autowired
-    ClienRepostory clienRepostory;
+    ClientRepository clienRepostory;
     @Autowired
-    ContratRepostory contratRepostory;
+    ContratRepository contratRepostory;
     @Autowired
     BienImobilierRepostory bienImobilierRepostory;
     @Test
@@ -41,10 +41,10 @@ public class ClientControllerTest {
     }
 
     @Test
-    public void delateClient() {
+    public void deleteClient() {
     }
 
     @Test
-    public void updaeClient() {
+    public void updateClient() {
     }
 }

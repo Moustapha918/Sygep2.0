@@ -24,7 +24,8 @@ public class Contrat implements Serializable {
 	@ManyToOne(cascade=CascadeType.ALL)
 	private BienImmobilier bienImmobilier;
 
-
+	@ManyToOne(cascade = CascadeType.ALL)
+	private Paiement paiement;
 
 	public Contrat() {
 	}
@@ -64,6 +65,14 @@ public class Contrat implements Serializable {
 	}
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	public Paiement getPaiement() {
+		return paiement;
+	}
+
+	public void setPaiement(Paiement paiement) {
+		this.paiement = paiement;
 	}
 
 	@Override
