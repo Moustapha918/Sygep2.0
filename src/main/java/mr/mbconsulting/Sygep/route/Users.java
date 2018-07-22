@@ -1,6 +1,6 @@
 package mr.mbconsulting.Sygep.route;
 
-import mr.mbconsulting.Sygep.model.User;
+import mr.mbconsulting.Sygep.entities.User;
 import mr.mbconsulting.Sygep.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

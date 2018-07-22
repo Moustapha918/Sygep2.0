@@ -1,8 +1,7 @@
 package mr.mbconsulting.Sygep;
 
-import mr.mbconsulting.Sygep.model.Role;
-import mr.mbconsulting.Sygep.model.User;
-import mr.mbconsulting.Sygep.repository.UserRepository;
+import mr.mbconsulting.Sygep.entities.Role;
+import mr.mbconsulting.Sygep.entities.User;
 import mr.mbconsulting.Sygep.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;

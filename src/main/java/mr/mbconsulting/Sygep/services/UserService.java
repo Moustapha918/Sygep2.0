@@ -1,6 +1,6 @@
 package mr.mbconsulting.Sygep.services;
 
-import mr.mbconsulting.Sygep.model.User;
+import mr.mbconsulting.Sygep.entities.User;
 
 public interface UserService {
     boolean signup(User user);

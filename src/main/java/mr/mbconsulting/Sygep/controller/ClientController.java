@@ -4,32 +4,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 import mr.mbconsulting.Sygep.entities.Client;
-import org.springframework.data.domain.Page;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
+
+import mr.mbconsulting.Sygep.services.ClientService;
 import org.springframework.web.bind.annotation.*;
-import mr.mbconsulting.Sygep.repository.ClientRepository;
 
 @RestController
-@RequestMapping("/client")
+@CrossOrigin("*")
+@RequestMapping("/clients")
 public class ClientController implements Serializable{
-	
-	@Autowired
-	private ClientRepository clientRepository;
-	
-	@RequestMapping("/")
-	public String test() {
-		return "test";
+
+	private ClientService clientService;
+
+	public ClientController(ClientService clientService) {
+		this.clientService = clientService;
 	}
-	
-	@GetMapping("/save")
-	public Client saveClient(Client c) {
-		clientRepository.save(c);
-		return c;
-	}
-	@CrossOrigin
-	@GetMapping(value = "/all", produces = "application/json")
-	public List<Client> allClient() {
+
+	@GetMapping("/all")
+	public List<Client> getAll() {
 
 
 		Client client1 = new Client();
@@ -52,22 +43,23 @@ public class ClientController implements Serializable{
 
 		return clients;
 
-		//return (List<Client>) clientRepository.findAll();
+		//return (List<Client>) clientService.findAll();
 	}
-	
-	/*@RequestMapping("/clients")
-	public Page<Client> allClient(int page) {
-		return  clientRepository.findAll(new PageRequest(page, 3));
-	}*/
-	@RequestMapping("/delete")
-	public boolean deletClient(Client c) {
-		 clientRepository.delete(c);
-		return true;
+
+	@PostMapping("/add")
+	public Client save(@RequestBody Client c) {
+		return clientService.save(c);
 	}
-	/*@RequestMapping("/update")
-	public Client updateClient(Client c) {
-		 clientRepository.saveAndFlush(c);
-		return c;
-	}*/
+
+	@PutMapping("/update/{id}")
+	public Client update(@PathVariable("id") Long id, @RequestBody Client client){
+		return clientService.update(id,client);
+	}
+
+
+	@DeleteMapping("/delete/{id}")
+	public boolean delete(@PathVariable("id") Long id) {
+		 return clientService.delete(id);
+	}
 
 }

@@ -1,6 +1,5 @@
 package mr.mbconsulting.Sygep.services;
 
-
 import mr.mbconsulting.Sygep.entities.Contrat;
 import mr.mbconsulting.Sygep.repository.ContratRepository;
 import org.springframework.stereotype.Service;
@@ -47,7 +46,7 @@ public class ContratServiceImpl implements ContratService {
      * @param contrat
      * @return true if contrat contrsaints is valid otherwise false
      */
-    private boolean isValid(Contrat contrat) {
+    private boolean isValid(Contrat contrat){
         return contrat != null && contrat.getBienImmobilier() != null && contrat.getClient() != null && !contrat.getType().equals("");
     }
 

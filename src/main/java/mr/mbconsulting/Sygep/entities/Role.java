@@ -1,4 +1,4 @@
-package mr.mbconsulting.Sygep.model;
+package mr.mbconsulting.Sygep.entities;
 
 import org.springframework.security.core.GrantedAuthority;
 

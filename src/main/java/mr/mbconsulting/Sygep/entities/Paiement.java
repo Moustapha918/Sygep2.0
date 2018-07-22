@@ -3,22 +3,31 @@ package mr.mbconsulting.Sygep.entities;
 import java.io.Serializable;
 import java.util.Date;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
-@Inheritance(strategy=InheritanceType.JOINED)
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="TYPE_PAIEMENT")
-
 public abstract class Paiement implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id; 
-	private Date date_paiement;
-	private Double montant;
 
+	private Date datePaiement;
+	private double montant;
 
-	@ManyToOne
-	private Contrat contrat;
+	@OneToMany(mappedBy = "paiement", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Contrat> contrats;
+
+	public Paiement() {
+	}
+
+	public Paiement(Date datePaiement, double montant) {
+		this.datePaiement = datePaiement;
+		this.montant = montant;
+	}
 
 	public Long getId() {
 		return id;
@@ -28,27 +37,27 @@ public abstract class Paiement implements Serializable {
 		this.id = id;
 	}
 
-	public Date getDate_paiement() {
-		return date_paiement;
+	public Date getDatePaiement() {
+		return datePaiement;
 	}
 
-	public void setDate_paiement(Date date_paiement) {
-		this.date_paiement = date_paiement;
+	public void setDatePaiement(Date datePaiement) {
+		this.datePaiement = datePaiement;
 	}
 
-	public Double getMontant() {
+	public double getMontant() {
 		return montant;
 	}
 
-	public void setMontant(Double montant) {
+	public void setMontant(double montant) {
 		this.montant = montant;
 	}
 
-	public Contrat getContrat() {
-		return contrat;
+	public List<Contrat> getContrats() {
+		return contrats;
 	}
 
-	public void setContrat(Contrat contrat) {
-		this.contrat = contrat;
+	public void setContrats(List<Contrat> contrats) {
+		this.contrats = contrats;
 	}
 }

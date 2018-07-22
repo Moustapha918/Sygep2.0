@@ -1,4 +1,4 @@
-package mr.mbconsulting.Sygep.model;
+package mr.mbconsulting.Sygep.entities;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
@@ -22,6 +22,15 @@ public class User {
 
     @ElementCollection(fetch = FetchType.EAGER)
     List<Role> roles;
+
+    public User() {
+    }
+
+    public User(String username, String email, String password) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+    }
 
     public Integer getId() {
         return id;

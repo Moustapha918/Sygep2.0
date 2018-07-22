@@ -1,6 +1,6 @@
 package mr.mbconsulting.Sygep.repository;
 
-import mr.mbconsulting.Sygep.model.User;
+import mr.mbconsulting.Sygep.entities.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

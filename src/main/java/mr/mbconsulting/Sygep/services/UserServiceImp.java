@@ -1,7 +1,7 @@
 package mr.mbconsulting.Sygep.services;
 
 import mr.mbconsulting.Sygep.Exception.ClientException;
-import mr.mbconsulting.Sygep.model.User;
+import mr.mbconsulting.Sygep.entities.User;
 import mr.mbconsulting.Sygep.repository.UserRepository;
 import mr.mbconsulting.Sygep.security.JwtTokenProvider;
 import org.springframework.beans.factory.annotation.Autowired;

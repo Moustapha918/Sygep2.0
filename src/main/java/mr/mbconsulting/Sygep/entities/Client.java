@@ -4,20 +4,13 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 public class Client implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-
 	private Long id;
 	private String nom;
 	private String prenom;
@@ -25,12 +18,25 @@ public class Client implements Serializable {
 	private String tel;
 	private String adresse;
 
-	@OneToOne(cascade=CascadeType.ALL)
+
+
+	@ManyToOne(cascade=CascadeType.ALL)
 	private Banque banque;
 
 	@JsonIgnore
 	@OneToMany(mappedBy="client")
 	private List<Contrat>  contrats=new ArrayList<>();
+
+	public Client() {
+	}
+
+	public Client(String nom, String prenom, String email, String tel, String adresse) {
+		this.nom = nom;
+		this.prenom = prenom;
+		this.email = email;
+		this.tel = tel;
+		this.adresse = adresse;
+	}
 
 	public Long getId() {
 		return id;

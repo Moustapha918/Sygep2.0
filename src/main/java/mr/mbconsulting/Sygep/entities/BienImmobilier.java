@@ -10,13 +10,23 @@ public class BienImmobilier implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 
 	private Long id;
-	private Double prix;
+	private double prix;
 	private String code;
 	private String intitule;
-	private Boolean etat;
-	@OneToMany(mappedBy = "bienImmobilier")
+	private boolean disponible;
+
+	@OneToMany(mappedBy = "bienImmobilier", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Contrat> contrats;
 
+	public BienImmobilier() {
+	}
+
+	public BienImmobilier(double prix, String code, String intitule, boolean disponible) {
+		this.prix = prix;
+		this.code = code;
+		this.intitule = intitule;
+		this.disponible = disponible;
+	}
 
 	public Long getId() {
 		return id;
@@ -26,11 +36,12 @@ public class BienImmobilier implements Serializable {
 		this.id = id;
 	}
 
-	public Double getPrix() {
+
+	public double getPrix() {
 		return prix;
 	}
 
-	public void setPrix(Double prix) {
+	public void setPrix(double prix) {
 		this.prix = prix;
 	}
 
@@ -50,13 +61,19 @@ public class BienImmobilier implements Serializable {
 		this.intitule = intitule;
 	}
 
-	public Boolean getEtat() {
-		return etat;
+	public boolean isDisponible() {
+		return disponible;
 	}
 
-	public void setEtat(Boolean etat) {
-		this.etat = etat;
+	public void setDisponible(boolean disponible) {
+		this.disponible = disponible;
 	}
 
+	public List<Contrat> getContrats() {
+		return contrats;
+	}
 
+	public void setContrats(List<Contrat> contrats) {
+		this.contrats = contrats;
+	}
 }

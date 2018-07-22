@@ -17,6 +17,14 @@ public class ContratController {
 
     private ContratService contratService;
 
+    public ContratController(ContratService contratService) {
+        this.contratService = contratService;
+    }
+
+    /**
+     *
+     * @return Contrats from database
+     */
     @GetMapping("/all")
     public List<Contrat> getAll(){
     	return contratService.getAll();
