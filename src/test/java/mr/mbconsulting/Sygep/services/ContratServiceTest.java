@@ -33,12 +33,7 @@ public class ContratServiceTest {
         assertNotNull(mockRepository);
     }
 
-    @Test
-    public void assertThatAddContratReturnFalseIfNotValid(){
-        Contrat contrat = new Contrat();
-        assertFalse(contratService.addContrat(null));
-        assertFalse(contratService.addContrat(contrat));
-    }
+
 
 
 }
