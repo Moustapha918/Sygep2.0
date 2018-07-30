@@ -1,12 +1,20 @@
 package mr.mbconsulting.Sygep.services;
 
 import mr.mbconsulting.Sygep.entities.Client;
+import mr.mbconsulting.Sygep.repository.ClientRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class ClientServiceImpl implements ClientService {
+
+    private ClientRepository clientRepository;
+
+    public ClientServiceImpl(ClientRepository clientRepository) {
+        this.clientRepository = clientRepository;
+    }
+
     @Override
     public List<Client> getAll() {
         return null;
@@ -14,7 +22,7 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     public Client save(Client client) {
-        return null;
+        return clientRepository.save(client);
     }
 
     @Override
